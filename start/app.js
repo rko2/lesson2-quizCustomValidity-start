@@ -28,10 +28,16 @@ submit.onclick = function () {
   if (firstPasswordInput.value != secondPasswordInput.value) {
     secondPasswordInput.setCustomValidity("The passwords should match.")
   }
-  if (firstPasswordInput.value.length < 16) {
-    firstPasswordInput.setCustomValidity("The password must be longer than 16 characters.")
+  if (firstPasswordInput.value.length < 16 | secondPasswordInput.value.length < 16) {
+    secondPasswordInput.setCustomValidity("The password must be longer than 16 characters.")
   }
-  if (secondPasswordInput.value.length > 100) {
+  if (firstPasswordInput.value.length > 100 | secondPasswordInput.value.length > 100) {
     secondPasswordInput.setCustomValidity("The password must be shorter than 100 characters.")
+  }
+  if (!firstPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g) | !secondPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g)) {
+    firstPasswordInput.setCustomValidity("The password must contain a symbol.")
+  }
+  if (!firstPasswordInput.value.match(/[0-9]/g) | !secondPasswordInput.value.match(/[0-9]/g)) {
+    firstPasswordInput.setCustomValidity("The password must contain a number.")
   }
 };
