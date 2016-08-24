@@ -23,8 +23,15 @@ var submit = document.querySelector('#submit');
 /*
 You'll probably find this function useful...
  */
+
 submit.onclick = function () {
-  if (firstPasswordInput != secondPasswordInput) {
+  if (firstPasswordInput.value != secondPasswordInput.value) {
     secondPasswordInput.setCustomValidity("The passwords should match.")
+  }
+  if (firstPasswordInput.value.length < 16) {
+    firstPasswordInput.setCustomValidity("The password must be longer than 16 characters.")
+  }
+  if (secondPasswordInput.value.length > 100) {
+    secondPasswordInput.setCustomValidity("The password must be shorter than 100 characters.")
   }
 };
