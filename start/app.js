@@ -23,4 +23,8 @@ var submit = document.querySelector('#submit');
 /*
 You'll probably find this function useful...
  */
-submit.onclick = function () {};
+submit.onclick = function () {
+  if (firstPasswordInput != secondPasswordInput) {
+    secondPasswordInput.setCustomValidity("The passwords should match.")
+  }
+};
