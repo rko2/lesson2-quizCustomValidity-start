@@ -40,4 +40,10 @@ submit.onclick = function () {
   if (!firstPasswordInput.value.match(/[0-9]/g) | !secondPasswordInput.value.match(/[0-9]/g)) {
     firstPasswordInput.setCustomValidity("The password must contain a number.")
   }
+  if (!firstPasswordInput.value.match(/[a-z]/g) | !secondPasswordInput.value.match(/[a-z]/g)) {
+    firstPasswordInput.setCustomValidity("The password must contain a lowercase letter.")
+  }
+  if (!firstPasswordInput.value.match(/[A-Z]/g) | !secondPasswordInput.value.match(/[A-Z]/g)) {
+    firstPasswordInput.setCustomValidity("The password must contain an uppercase letter.")
+  }
 };
