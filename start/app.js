@@ -22,5 +22,5 @@ var submit = document.querySelector('#submit');
 
 /*
 You'll probably find this function useful...
- */  
+ */
 submit.onclick = function () {};
