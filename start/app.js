@@ -26,24 +26,23 @@ You'll probably find this function useful...
 
 submit.onclick = function () {
   if (firstPasswordInput.value != secondPasswordInput.value) {
-    secondPasswordInput.setCustomValidity("The passwords should match.")
-  }
-  if (firstPasswordInput.value.length < 16 | secondPasswordInput.value.length < 16) {
-    secondPasswordInput.setCustomValidity("The password must be longer than 16 characters.")
-  }
-  if (firstPasswordInput.value.length > 100 | secondPasswordInput.value.length > 100) {
-    secondPasswordInput.setCustomValidity("The password must be shorter than 100 characters.")
-  }
-  if (!firstPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g) | !secondPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g)) {
+    firstPasswordInput.setCustomValidity("The passwords should match.")
+  } else if (firstPasswordInput.value.length < 16 || secondPasswordInput.value.length < 16) {
+    firstPasswordInput.setCustomValidity("The password must be longer than 16 characters.")
+  } else if (firstPasswordInput.value.length > 100 || secondPasswordInput.value.length > 100) {
+    firstPasswordInput.setCustomValidity("The password must be shorter than 100 characters.")
+  } else if (!firstPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g) || !secondPasswordInput.value.match(/[\!\@\#\$\%\^\&\*]/g)) {
     firstPasswordInput.setCustomValidity("The password must contain a symbol.")
-  }
-  if (!firstPasswordInput.value.match(/[0-9]/g) | !secondPasswordInput.value.match(/[0-9]/g)) {
+  } else if (!firstPasswordInput.value.match(/[0-9]/g) || !secondPasswordInput.value.match(/[0-9]/g)) {
     firstPasswordInput.setCustomValidity("The password must contain a number.")
-  }
-  if (!firstPasswordInput.value.match(/[a-z]/g) | !secondPasswordInput.value.match(/[a-z]/g)) {
-    firstPasswordInput.setCustomValidity("The password must contain a lowercase letter.")
-  }
-  if (!firstPasswordInput.value.match(/[A-Z]/g) | !secondPasswordInput.value.match(/[A-Z]/g)) {
+  } else if (!(firstPasswordInput.value.match(/[A-Z]/g)) || !(secondPasswordInput.value.match(/[A-Z]/g))) {
     firstPasswordInput.setCustomValidity("The password must contain an uppercase letter.")
+  } else if (!firstPasswordInput.value.match(/[a-z]/g) || !secondPasswordInput.value.match(/[a-z]/g)) {
+    firstPasswordInput.setCustomValidity("The password must contain a lowercase letter.")
+  } else if (firstPasswordInput.value.match(/[^A-z0-9\!\@\#\$\%\^\&\*]/g)) {
+    firstPasswordInput.setCustomValidity("The password contains an illegal character.")
+  } else {
+    firstPasswordInput.setCustomValidity("")
+    secondPasswordInput.setCustomValidity("")
   }
 };

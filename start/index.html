@@ -23,10 +23,10 @@
 
     <form>
         <label>
-          <input id="first" type="password" required placeholder="New password" min="16" max="100" pattern="/[^A-z0-9\!\@\#\$\%\^\&\*]/g/[A-Z]/g/[a-z]/g/[0-9]/g/[\!\@\#\$\%\^\&\*]/g" autofocus>
+          <input id="first" type="password" required placeholder="New password" min="16" max="100" pattern="/[^A-z0-9\!\@\#\$\%\^\&\*]/g" autofocus>
         </label>
         <label>
-          <input id="second" type="password" required placeholder="Repeat password" min="16" max="100">
+          <input id="second" type="password" required placeholder="Repeat password" min="16" max="100" pattern="/[^A-z0-9\!\@\#\$\%\^\&\*]/g">
         </label>
       <input id="submit" type="submit">
     </form>
